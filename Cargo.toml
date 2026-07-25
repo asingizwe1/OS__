@@ -4,3 +4,11 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+
+#This sets the panic strategy to abort for both the dev profile (used for cargo build) and the release profile (used for cargo build --release). Now the unwinding panics are not supported without std error should be fixed.
+#diabling stack unwinding
+[profile.dev]
+panic = "abort"
+
+[profile.release]
+panic = "abort"
